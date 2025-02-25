@@ -1,0 +1,22 @@
+[
+  {
+    "Session group": "Direct",
+    "Active users": 5126
+  },
+  {
+    "Session group": "Organic Search",
+    "Active users": 1381
+  },
+  {
+    "Session group": "Referral",
+    "Active users": 86
+  },
+  {
+    "Session group": "Organic Social",
+    "Active users": 28
+  },
+  {
+    "Session group": "Unassigned",
+    "Active users": 2
+  }
+]

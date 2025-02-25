@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Script Runner</title>
+  </head>
+  <body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+      <h1 class="text-xl font-bold mb-4 text-gray-700">
+        Script Runner Dashboard
+      </h1>
+      <div class="space-y-3">
+        <button
+          class="w-full py-2 bg-blue-500 text-white rounded-md"
+          onclick="runScript('script1')"
+        >
+          Run Billie
+        </button>
+        <button
+          class="w-full py-2 bg-green-500 text-white rounded-md"
+          onclick="runScript('script2')"
+        >
+          Run Bundum
+        </button>
+        <button
+          class="w-full py-2 bg-red-500 text-white rounded-md"
+          onclick="runScript('script3')"
+        >
+          Run Fartbuckle
+        </button>
+        <button
+          class="w-full py-2 bg-purple-500 text-white rounded-md"
+          onclick="runScript('script4')"
+        >
+          Run Matilda
+        </button>
+      </div>
+      <h2 class="mt-6 text-lg font-semibold">Upload CSV</h2>
+      <button id="clearUploads">Clear Uploads</button>
+
+      <script>
+        document
+          .getElementById("clearUploads")
+          .addEventListener("click", () => {
+            fetch("/clear-uploads", { method: "POST" })
+              .then((response) => response.json())
+              .then((data) => alert(data.message))
+              .catch((error) => console.error("Error:", error));
+          });
+      </script>
+      <input type="file" id="csvUpload" class="border p-2 w-full mb-3" />
+      <button
+        class="w-full py-2 bg-gray-700 text-white rounded-md"
+        onclick="uploadFile()"
+      >
+        Upload
+      </button>
+      <p id="output" class="mt-4 text-gray-600"></p>
+    </div>
+
+    <script>
+      function runScript(script) {
+        fetch(`/run/${script}`)
+          .then((res) => res.json())
+          .then(
+            (data) =>
+              (document.getElementById("output").innerText = data.message)
+          )
+          .catch((err) => console.error(err));
+      }
+
+      function uploadFile() {
+        const fileInput = document.getElementById("csvUpload");
+        if (!fileInput.files.length) return alert("Please select a file");
+
+        const formData = new FormData();
+        formData.append("csvfile", fileInput.files[0]);
+
+        fetch("/upload", { method: "POST", body: formData })
+          .then((res) => res.text())
+          .then((msg) => (document.getElementById("output").innerText = msg))
+          .catch((err) => console.error(err));
+      }
+    </script>
+  </body>
+</html>

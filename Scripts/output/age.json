@@ -1,0 +1,26 @@
+[
+  {
+    "Age group": "25-34",
+    "Active users": 128
+  },
+  {
+    "Age group": "35-44",
+    "Active users": 109
+  },
+  {
+    "Age group": "45-54",
+    "Active users": 88
+  },
+  {
+    "Age group": "55-64",
+    "Active users": 73
+  },
+  {
+    "Age group": "18-24",
+    "Active users": 62
+  },
+  {
+    "Age group": "65+",
+    "Active users": 43
+  }
+]

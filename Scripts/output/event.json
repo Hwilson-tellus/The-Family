@@ -1,0 +1,30 @@
+[
+  {
+    "Event name": "page_view",
+    "Event count": 16111
+  },
+  {
+    "Event name": "scroll",
+    "Event count": 6779
+  },
+  {
+    "Event name": "session_start",
+    "Event count": 6715
+  },
+  {
+    "Event name": "user_engagement",
+    "Event count": 6354
+  },
+  {
+    "Event name": "first_visit",
+    "Event count": 4806
+  },
+  {
+    "Event name": "click",
+    "Event count": 1554
+  },
+  {
+    "Event name": "form_start",
+    "Event count": 905
+  }
+]
